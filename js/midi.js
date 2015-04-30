@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
   	navigator.requestMIDIAccess().then( 
 		onMIDIInit, 
     	onMIDISystemError );
-    	console.log('in navigator');
+    	//console.log('in navigator');
 });
 
 function onMIDIInit( midi ) {

@@ -1,3 +1,4 @@
+
 var mediator = new MicroEvent();
 
 //to listen for an event:
