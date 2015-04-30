@@ -19,15 +19,15 @@ window.onload = function() {
 
 function temp(arg){
 	console.log(arg);
-	var t = new thing(20,30);
-	t.init();
+	//var t = new thing(20,30);
+	//t.init();
 }
 
 function thing(x,y){
 	this.path = new paper.Path.Rectangle(0,0);
 }
 
-thing.prototype.init(){
+thing.prototype.init=function(){
 	this.path.position = new paper.Point(x,y);
 	this.path.strokeColor = 'black';
 }

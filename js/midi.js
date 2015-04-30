@@ -7,7 +7,7 @@ window.addEventListener('load', function() {
 
 function onMIDIInit( midi ) {
 	//console.log('initializing midi');
-	console.log(midi);
+	//console.log(midi);
 	var temp = midi.inputs();
 	temp[0].onmidimessage=midiMessageReceived;
 }
