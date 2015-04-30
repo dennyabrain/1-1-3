@@ -1,29 +1,42 @@
-window.addEventListener('load', function() {   
-  	navigator.requestMIDIAccess().then( 
+function initializeMIDI(){
+	navigator.requestMIDIAccess().then( 
 		onMIDIInit, 
     	onMIDISystemError );
-    	//console.log('in navigator');
-});
+}
 
 function onMIDIInit( midi ) {
-	//console.log('initializing midi');
-	//console.log(midi);
 	var temp = midi.inputs();
 	temp[0].onmidimessage=midiMessageReceived;
 }
 
 function onMIDISystemError(){
-	//console.log('in System Error');
+	console.log('in MIDI Error');
 }
 
 function midiMessageReceived( ev ) {
-	//console.log('midiMessageRcvd');
-	//console.log(' val0 : '+ev.data[0]+' val1 : '+ev.data[1]+' val2 : '+ev.data[2]);
-	//val1 is noteValue and val2 is velocity or analog value
-	//then to trigger that event in another part of your application:
 	arg={
-		var1 : "text",
-		var2 : "number"
+		noteValue : ev.data[1],
+		analogValue : ev.data[2]
 	};
-	mediator.send("someEvent", arg);
+	var listener = makeSenseOfMidi(ev);
+	mediator.send(listener, arg);
+}
+
+function makeSenseOfMidi(ev){
+	var arg = ' ';
+	switch(ev.data[1]){
+		case 91:
+			arg='knob1';
+			break;
+		case 93:
+			arg='knob2';
+			break;
+		case 26:
+			arg='knob3';
+			break;
+		case 30:
+			arg='knob4';
+			break;	
+	}
+	return arg;
 }
