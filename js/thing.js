@@ -8,6 +8,8 @@ thing.prototype.init=function(){
     this.circle.attr("stroke", "#00f");
 }
 
-thing.prototype.draw=function(){
-
+thing.prototype.move=function(x){
+	console.log(x);
+	console.log(this.circle);
+	//this.circle.attrs.cx=x*100;
 }

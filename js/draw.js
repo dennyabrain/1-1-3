@@ -1,7 +1,7 @@
 function initCanvas(){
-	var t=new thing();
+	t=new thing();
 	t.init();
-	t.draw();
+	t.move();
 }
 
 function drawStuff(x,y){

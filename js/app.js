@@ -1,5 +1,6 @@
 var mediator;
 var paper;
+var t;
 
 window.onload = function(){
 	mediator = new MicroEvent();
@@ -8,4 +9,6 @@ window.onload = function(){
 	initializeMIDI();
 	initCanvas();
 	drawStuff(100,100);
+
+	mediator.route('knob1',t.move.bind(this))
 }
